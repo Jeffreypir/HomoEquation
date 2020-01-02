@@ -1,0 +1,124 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath,amsthm,amssymb,mathtools,tikz,graphicx,pgfplots,verbatim,fancyhdr}
+\pagestyle{fancy}%Style of page
+\setlength{\headsep}{0.5in}
+
+\lhead{%Header left
+	Universidade Federal da Para\'iba \\
+	Discente: Jefferson Bezerra dos Santos\\
+	Docente: Thiago 
+}
+
+\title{ Terceira lista de EDO te\'orica}
+\date{\vspace{-5ex}}
+
+\begin{document}
+\maketitle\thispagestyle{fancy}
+\textbf{1. Quest\~ao:}\\
+a) $y^{''} + 4y$ = 0\\
+Equa\c c\~ao homog\^enia auxiliar:
+\begin{align*}
+	{\lambda}^{2} + 4 = 0 \\
+	{\lambda}^{2} = \pm 2i
+\end{align*}
+A solu\c c\~ao homog\^enea \'e da forma:
+\begin{align*}
+	y_{h}{x} &= c_1e^{-2i} + c_2 e^{2i}\\
+	y_{h}{x} &=  c_1 \left [ cos(2x) -isen(2x)\right ] +  c_2 \left [ cos(2x) +isen(2x)\right ]\\
+	y_h{x} &= (c_1 + c_2)cos(2x) + (-c_1 + c_2)isen(2x)
+\end{align*}
+tomando $b_1 = c_1 + c_2$ e $b_2 = (-c_1 + c_2)i$ temos que
+\begin{align*}
+	y_{h} &= b_1 cos(2x) + b_2 sen(2x)
+\end{align*}
+segue que $y_1 = cos(2x)$ e $y_2 = sen(2x)$. Portanto, o conjunto ser\'a dada por,
+$$C =\left \{ cos(2x), sen(2x) \right \}$$
+para a verifica\c c\~ao da indep\^encia vamos utilizar o Wronskiano, 
+\begin{align*}
+	W(y_1,y_2) = det \left [ \begin{array}{cc} 
+			y_1 & {y_1}^{'} \\
+			y_2 & {y_2}^{'}
+	\end{array} \right ] 
+\end{align*}
+\begin{align*}
+	W(y_1,y_2) = det \left [ \begin{array}{cc} 
+			cos(2x) & -2sen(2x) \\
+			sen(2x) & 2cos(2x)
+	\end{array} \right ] = 2({sen}^{2}(x) + {cos}^{2}(x)) = 2.1 \neq 0.
+\end{align*}
+Logo, o conjunto C \'e independente. \\
+
+b)$y^{(3)} -6y^{(2)} + 11y^{(1)} - 6y = 0$\\
+
+Equa\c c\~ao homog\^enea: \\
+${\lambda}^{3} -6{\lambda}^{2} + 11{\lambda} - 6 = 0$\\
+note que $\lambda = 1$ \'e uma das ra\'izes da equa\c c\~ao homog\^enea, portanto aplicando a divis\~ao de polin\^omios
+temos que \\
+${\lambda}^{3} -6{\lambda}^{2} + 11{\lambda} - 6 = (\lambda - 1)({\lambda}^{2} -5{\lambda} + 6) =  (\lambda - 1)(\lambda - 2)(\lambda - 3)$
+\\ logo,\\
+$$y_h(x) = c_1e^{x} + c_2e^{2x} + c_3e^{3x}$$
+o conjunto C a ser verificado \'e da forma
+$$C = \{e^{x}, e^{2x}, e^{3x}\}.$$
+O wronskiano \'e dado por,
+\begin{align*}
+	W(y_1,y_2, y_3) = det \left [ \begin{array}{ccc} 
+			e^{x} & e^{2x}  & e^{3x}\\
+			e^{x} & 2e^{2x} & 3e^{3x}\\
+			e^{x} & 4e^{2x} & 9e^{3x}
+	\end{array} \right ] = e^{x}(8e^{5x} - 6e^{5x})= e^{x}(2e^{5x}) \neq 0 \quad \forall x \in \mathbb{R}.
+\end{align*}
+c) $y^{4} - y = 0$ \\
+Equa\c c\~ao homog\^enea :\\
+${\lambda}^{4} - 1 = 0$\\
+cujas as ra\'izes s\~ao\\
+${\lambda}_1 = -1,  {\lambda}_2 = 1, {\lambda}_3 = -i \hspace{3pt} e\hspace{3pt} {\lambda}_4 = i.$
+
+$$y_h(x) = c_1e^{-x} + c_2e^{x} + c_3e^{-ix} + c_4e^{ix}$$
+$$y_h(x) = c_1e^{-x} + c_2e^{x} + b_1cos(x) + b_2sen(x)$$
+O conjunto \'e dado por,
+$$C = \{e^{-x},e^{x}, cos(x),sen(x)\}$$
+\begin{align*}
+	W(y_1,y_2, y_3, y_4) = det \left [ \begin{array}{cccc} 
+			e^{-x}  & e^{x} & cos(x)  &  sen(x)\\
+		   -e^{-x}  & e^{x} & -sen(x) &  cos(x)\\
+			e^{-x}  & e^{x} & -cos(x) & -sen(x)\\
+		   -e^{-x}  & e^{x} & sen(x)  & -cos(x)
+	\end{array} \right ] = e^{-x}(2e^{x})\left | 
+		\begin{array}{cc}	
+			-2cos(x) & -2sen(x) \\
+			2sen(x) & -2cos(x)
+		\end{array}
+	\right |
+	\\= 4 \neq 0.
+\end{align*}
+portanto, o conjunto C \'e L.I.\\
+
+d) $y^{4} -6y^{3} + 18y^{2} -30y^{1} + 25y= 0$ \\ 
+Equa\c c\~ao homog\^nea:\\
+${\lambda}^{4} -6{\lambda}^{3} + 18{\lambda}^{2} -30{\lambda} + 25= 0$\\
+${\lambda}_1 = 1-2i,  {\lambda}_2 = 1+2i, {\lambda}_3 = 2-i \hspace{3pt} e\hspace{3pt} {\lambda}_4 = 2+i.$ \\
+A solu\c c\~ao homog\^enea \'e da forma,
+$$y_h(x) = c_1e^{(1-2i)x} + c_2e^{(1+2i)x} + c_3e^{(2-i)x} + c_4e^{(2+i)x}$$
+logo, o conjunto C \'e da forma 
+$$C = \{e^{(1-2i)x},e^{(1+2i)x},e^{(2-i)x},e^{(2+i)x}\}$$
+$$W = -160e^{6x} \neq 0$$
+logo, o conjunto C \'e L.I. Para os c\'alculos foi utilizado o Wolfram.\\
+e) $y^{3} -3y  = 0$\\
+Equa\c c\~ao homog\^enea: \\
+${\lambda}^{3} -3{\lambda} = 0$\\
+${\lambda}({\lambda}^{2} -3) = 0$\\
+${\lambda}_1 = 0,{\lambda}_2 = -\sqrt{3},{\lambda}_3 = \sqrt{3}$\\
+o conjunto C a ser verificado \'e da forma
+$$C = \{1, e^{(-\sqrt{3})x},e^{(\sqrt{3})x}\}.$$
+\begin{align*}
+	W(y_1,y_2, y_3,) = det \left [ \begin{array}{ccc} 
+			1 & 0  & 0\\
+			e^{(-\sqrt{3})x} & -\sqrt{3}e^{(-\sqrt{3})x} & 3e^{(-\sqrt{3})x}\\
+e^{(\sqrt{3})x} & \sqrt{3}e^{(\sqrt{3})x} & 3e^{(\sqrt{3})x}\\
+	\end{array} \right ]= -6\sqrt{3} \neq = 0.
+\end{align*}
+portanto, o conjunto C \'e L.I.\\
+\end{document}
+
+	

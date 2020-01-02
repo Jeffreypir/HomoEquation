@@ -1,0 +1,336 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath,amsthm,amssymb,mathtools,tikz,graphicx,pgfplots,verbatim,fancyhdr}
+\pagestyle{fancy}%Style of page
+\setlength{\headsep}{0.5in}
+
+\lhead{%Header left
+	Universidade Federal da Para\'iba \\
+	Discente: Jefferson Bezerra dos Santos\\
+	Docente: Thiago 
+}
+
+\title{ Terceira lista de EDO te\'orica}
+\date{\vspace{-5ex}}
+
+\begin{document}
+\maketitle\thispagestyle{fancy}
+\textbf{1. Quest\~ao:}\\
+a) $y^{''} + 4y$ = 0\\
+Equa\c c\~ao homog\^enia auxiliar:
+\begin{align*}
+	{\lambda}^{2} + 4 = 0 \\
+	{\lambda}^{2} = \pm 2i
+\end{align*}
+A solu\c c\~ao homog\^enea \'e da forma:
+\begin{align*}
+	y_{h}{x} &= c_1e^{-2i} + c_2 e^{2i}\\
+	y_{h}{x} &=  c_1 \left [ cos(2x) -isen(2x)\right ] +  c_2 \left [ cos(2x) +isen(2x)\right ]\\
+	y_h{x} &= (c_1 + c_2)cos(2x) + (-c_1 + c_2)isen(2x)
+\end{align*}
+tomando $b_1 = c_1 + c_2$ e $b_2 = (-c_1 + c_2)i$ temos que
+\begin{align*}
+	y_{h} &= b_1 cos(2x) + b_2 sen(2x)
+\end{align*}
+segue que $y_1 = cos(2x)$ e $y_2 = sen(2x)$. Portanto, o conjunto ser\'a dada por,
+$$C =\left \{ cos(2x), sen(2x) \right \}$$
+para a verifica\c c\~ao da indep\^encia vamos utilizar o Wronskiano, 
+\begin{align*}
+	W(y_1,y_2) = det \left [ \begin{array}{cc} 
+			y_1 & {y_1}^{'} \\
+			y_2 & {y_2}^{'}
+	\end{array} \right ] 
+\end{align*}
+\begin{align*}
+	W(y_1,y_2) = det \left [ \begin{array}{cc} 
+			cos(2x) & -2sen(2x) \\
+			sen(2x) & 2cos(2x)
+	\end{array} \right ] = 2({sen}^{2}(x) + {cos}^{2}(x)) = 2.1 \neq 0.
+\end{align*}
+Logo, o conjunto C \'e independente. \\
+
+b)$y^{(3)} -6y^{(2)} + 11y^{(1)} - 6y = 0$\\
+
+Equa\c c\~ao homog\^enea: \\
+${\lambda}^{3} -6{\lambda}^{2} + 11{\lambda} - 6 = 0$\\
+note que $\lambda = 1$ \'e uma das ra\'izes da equa\c c\~ao homog\^enea, portanto aplicando a divis\~ao de polin\^omios
+temos que \\
+${\lambda}^{3} -6{\lambda}^{2} + 11{\lambda} - 6 = (\lambda - 1)({\lambda}^{2} -5{\lambda} + 6) =  (\lambda - 1)(\lambda - 2)(\lambda - 3)$
+\\ logo,\\
+$$y_h(x) = c_1e^{x} + c_2e^{2x} + c_3e^{3x}$$
+o conjunto C a ser verificado \'e da forma
+$$C = \{e^{x}, e^{2x}, e^{3x}\}.$$
+O wronskiano \'e dado por,
+\begin{align*}
+	W(y_1,y_2, y_3) = det \left [ \begin{array}{ccc} 
+			e^{x} & e^{2x}  & e^{3x}\\
+			e^{x} & 2e^{2x} & 3e^{3x}\\
+			e^{x} & 4e^{2x} & 9e^{3x}
+	\end{array} \right ] = e^{x}(8e^{5x} - 6e^{5x})= e^{x}(2e^{5x}) \neq 0 \quad \forall x \in \mathbb{R}.
+\end{align*}
+c) $y^{4} - y = 0$ \\
+Equa\c c\~ao homog\^enea :\\
+${\lambda}^{4} - 1 = 0$\\
+cujas as ra\'izes s\~ao\\
+${\lambda}_1 = -1,  {\lambda}_2 = 1, {\lambda}_3 = -i \hspace{3pt} e\hspace{3pt} {\lambda}_4 = i.$
+
+$$y_h(x) = c_1e^{-x} + c_2e^{x} + c_3e^{-ix} + c_4e^{ix}$$
+$$y_h(x) = c_1e^{-x} + c_2e^{x} + b_1cos(x) + b_2sen(x)$$
+O conjunto \'e dado por,
+$$C = \{e^{-x},e^{x}, cos(x),sen(x)\}$$
+\begin{align*}
+	W(y_1,y_2, y_3, y_4) = det \left [ \begin{array}{cccc} 
+			e^{-x}  & e^{x} & cos(x)  &  sen(x)\\
+		   -e^{-x}  & e^{x} & -sen(x) &  cos(x)\\
+			e^{-x}  & e^{x} & -cos(x) & -sen(x)\\
+		   -e^{-x}  & e^{x} & sen(x)  & -cos(x)
+	\end{array} \right ] = e^{-x}(2e^{x})\left | 
+		\begin{array}{cc}	
+			-2cos(x) & -2sen(x) \\
+			2sen(x) & -2cos(x)
+		\end{array}
+	\right |
+	\\= 4 \neq 0.
+\end{align*}
+portanto, o conjunto C \'e L.I.\\
+
+d) $y^{4} -6y^{3} + 18y^{2} -30y^{1} + 25y= 0$ \\ 
+Equa\c c\~ao homog\^nea:\\
+${\lambda}^{4} -6{\lambda}^{3} + 18{\lambda}^{2} -30{\lambda} + 25= 0$\\
+${\lambda}_1 = 1-2i,  {\lambda}_2 = 1+2i, {\lambda}_3 = 2-i \hspace{3pt} e\hspace{3pt} {\lambda}_4 = 2+i.$ \\
+A solu\c c\~ao homog\^enea \'e da forma,
+$$y_h(x) = c_1e^{(1-2i)x} + c_2e^{(1+2i)x} + c_3e^{(2-i)x} + c_4e^{(2+i)x}$$
+logo, o conjunto C \'e da forma 
+$$C = \{e^{(1-2i)x},e^{(1+2i)x},e^{(2-i)x},e^{(2+i)x}\}$$
+$$W = -160e^{6x} \neq 0$$
+logo, o conjunto C \'e L.I. Para os c\'alculos foi utilizado o Wolfram.\\
+e) $y^{3} -3y  = 0$\\
+Equa\c c\~ao homog\^enea: \\
+${\lambda}^{3} -3{\lambda} = 0$\\
+${\lambda}({\lambda}^{2} -3) = 0$\\
+${\lambda}_1 = 0,{\lambda}_2 = -\sqrt{3},{\lambda}_3 = \sqrt{3}$\\
+o conjunto C a ser verificado \'e da forma
+$$C = \{1, e^{(-\sqrt{3})x},e^{(\sqrt{3})x}\}.$$
+\begin{align*}
+	W(y_1,y_2, y_3,) = det \left [ \begin{array}{ccc} 
+			1 & 0  & 0\\
+			e^{(-\sqrt{3})x} & -\sqrt{3}e^{(-\sqrt{3})x} & 3e^{(-\sqrt{3})x}\\
+e^{(\sqrt{3})x} & \sqrt{3}e^{(\sqrt{3})x} & 3e^{(\sqrt{3})x}\\
+	\end{array} \right ]= -6\sqrt{3} \neq 0.
+\end{align*}
+portanto, o conjunto C \'e L.I.\\
+f)$y^{5} - y^{4} -2y^{3} + 2y^{2} + y^{1} -y = 0$\\
+Equa\c c\~ao homog\^enea:\\
+${\lambda}^{5} - {\lambda}^{4} -2{\lambda}^{3} + 2{\lambda}^{2} + {\lambda}^{1} -1$\\
+uma das ra\'izes \'e $\lambda -1 = 0$, portanto aplicando  aplicando divis\~ao de polin\^omio obtemos que
+\begin{align*}
+({\lambda}^{4} -2{\lambda}^{2} + 1) (\lambda -1) = 0\\
+({\lambda}^{2} -1)^{2} (\lambda -1) = 0\\
+({\lambda} + 1)^{2} (\lambda -1)^{3} = 0
+\end{align*}
+logo, a solu\c c\~ao homog\^enea \'e da forma
+\begin{align*}
+	y_h(x) = c_1e^{-x} + c_2xe^{-x} + c_3e^{x} + c_4xe^{x} + c_4{x}^{2}e^{x}
+\end{align*}
+o conjunto C a ser verificado \'e da forma \\
+$$C = \{e^{-x}, xe^{-x},e^{x},xe^{x},{x}^{2}e^{x}\}.$$
+segue que 
+\begin{align*}
+	W = 128 e^{x} \neq  0
+\end{align*}
+portanto o conjunto C \'e L.I para o c\'alculo de W foi utilizado Wolfram.
+
+\textbf{2. Quest\~ao:}
+\begin{align*}
+	y^{(4)}(x) + 2y^{(2)}(x) + y(x) = 3e^{2x} + 2sin(x) - 8e^{x}cos(x)
+\end{align*}
+Equa\c c\~ao homog\^enea:\\
+\begin{align*}
+{\lambda}^{4} + 2 {\lambda}^{2} + 1 = 0\\
+({\lambda}^{2} + 1)^{2} = 0\\
+({\lambda}^{2} + 1) = 0\\
+{\lambda} = \pm i
+\end{align*}
+solu\c c\~ao homog\^enea \'e da forma,
+\begin{align*}
+	y_h(x) &= c_1e^{ix} + c_2e^{-ix} + c_3xe^{ix} + c_4xe^{-ix} \\
+	&=  k_1cos(x) + k_2sen(x) + k_3xcos(x) + k_4xsen(x)
+\end{align*}
+a solu\c c\~ao particular \'e da forma, 
+\begin{align*}
+	y_p(x) = ae^{2x} + bcos(x) + csen(x) + de^{x}cos(x) + {\alpha} e^{x} sen(x)
+\end{align*}
+calculando a derivadas da solu\c c\~ao particular segue que
+\begin{align*}
+	{y_p(x)}^{(1)} &= 2ae^{2x} -b sen(x) + cos(x) de^{x}(cos(x) -sen(x) + {\alpha}e^{x} (sen(x) + cos(x))) \\
+	{y_p(x)}^{(2)} &= 4ae^{2x} -bcos(x) -csen(x) + de^{x}(-2sen(x)+ {\alpha}e^{x}(2cos(x)))\\
+	{y_p(x)}^{(3)} &= 8ae^{2x} + bsen(x) -ccos(x) + de^{x}(-2cos(x) -2sen(x)) + {\alpha}e^{x}(2cos(x) -2sen(x)) \\
+	{y_p(x)}^{(4)} &= 16ae^{2x} + bcos(x) + csen(x) + de^{x}(-4cos(x)+ {\alpha}e^{x}(-4sen(x)))
+\end{align*}
+substituindo na equa\c c\~ao segue que 
+\begin{align*}
+	y^{(4)}(x) + 2y^{(2)}(x) + y(x) &= \\ 
+	&= 25ae^{2x} + (-4de^{x} -3{\alpha}e^{x})sen(x) + (-3d + 4{\alpha})e^{x}cos(x)\\
+	&= 3e^{2x} + 2sin(x) - 8e^{x}cos(x)
+\end{align*}
+da igualdade acima obtemos o seguinte sistema 
+\begin{align*}
+	\left \{ 
+{\arraycolsep=3.4pt\def\arraystretch{1.5}
+		\begin{array}{cl}	
+			25a &= 3 \\
+			-4d -3{\alpha} &= \frac{2}{e^{x}} \\
+			-3d -4{\alpha} &= -8	
+		\end{array}
+	}
+		\right . \Rightarrow  
+		\left \{ 
+{\arraycolsep=3.4pt\def\arraystretch{1.5}
+		\begin{array}{cl}	
+			a &= \frac{3}{25} \\
+			{\alpha} &= -\frac{1}{25}\left ( 32 + \frac{6}{e^{x}}\right )  \\
+			d &= \frac{4}{3}\left [ -\frac{1}{25}(32 + \frac{6}{e^{x}})\right ] 	
+		\end{array}
+	}
+		\right .
+\end{align*}
+portanto, a solu\c c\~ao geral \'e da forma
+\begin{align*}
+	y(x) = y_h(x) + y_p(x)
+\end{align*}
+onde :
+\begin{align*}
+a &= \frac{3}{25} \\
+			{\alpha} &= -\frac{1}{25}\left ( 32 + \frac{6}{e^{x}}\right )  \\
+			d &= \frac{4}{3}\left [ -\frac{1}{25}(32 + \frac{6}{e^{x}})\right ] 	
+\end{align*}
+com $b,c \in \mathbb{R}$.
+
+\textbf{3. Quest\~ao:}\\
+Seja $y_1$ e $y_2$ as fun\c c\~oes solu\c c\~ao. Temos que para que sejam independentes \'e suficiente que 
+\begin{align*}	
+	W(y_1,y_2) \neq 0 \Rightarrow x^{2} - 4 \neq  0 \Rightarrow x \neq \pm 2
+\end{align*}
+contudo, nenhuma restri\c c\~ao do dom\'inio de $x^{2} - 1$ foi especificada, portanto, as fun\c c\~oes $y_1$ e $y_2$
+s\~ao L.D.
+
+\textbf{4. Quest\~ao:}\\
+Seja a equa\c c\~ao 
+\begin{align*}
+	ay^{(2)}(x) + by^{(1)}(x) + cy(x) = f(x)
+\end{align*}
+da equa\c c\~ao homog\^enea obtemos que 
+\begin{align*}
+	{\lambda} = \frac{-b \pm \sqrt{b^{2} - 4ac}}{2a}
+\end{align*}
+vejamos primeiramente para o caso real, tomando 
+\begin{align*}
+	\alpha =  \frac{-b + \sqrt{b^{2} - 4ac}}{2a}\\
+	\beta =  \frac{-b + \sqrt{b^{2} - 4ac}}{2a}\\
+\end{align*}
+e supondo que $\alpha < 0$ e $\beta < 0$ temos que 
+\begin{align*}
+	y_1(x) = e^{{\alpha}x} \Rightarrow \lim_{x \rightarrow \infty}  e^{{\alpha}x} = 0\\
+	y_2(x) = e^{{\beta}x} \Rightarrow \lim_{x \rightarrow \infty}  e^{{\beta}x} = 0\\
+\end{align*}
+segue que 
+\begin{align*}
+	y_1(x) - y_2 (x) = 0  \quad \textrm{quando} \quad x \rightarrow \infty
+\end{align*}
+supondo que  $\alpha < 0$ e $\beta < 0$ onde $\alpha = \beta$ segue que 
+\begin{align*}
+	y_1(x) &= e^{{\alpha}x} \Rightarrow \lim_{x \rightarrow \infty}  e^{{\alpha}x} = 0\\
+	y_2(x) &= xe^{{\beta}x} 
+\end{align*}
+reescrevendo e aplicando a regra de L'Hopital em $y_2$ temos que
+\begin{align*}
+	\lim_{x \rightarrow \infty}  xe^{{\beta}x} = \lim_{x \rightarrow \infty}  \frac{x}{\frac{1}{e^{{\beta}x}}} =
+	\lim_{x \rightarrow \infty} \frac{1}{e^{{-\beta}x}} = 0\\
+\end{align*}
+logo, 
+\begin{align*}
+	y_1(x) - y_2 (x) = 0  \quad \textrm{quando} \quad x \rightarrow \infty
+\end{align*}
+note que o resultado \'e v\'alido para o caso que $\alpha < 0$ e $\beta < 0 $ . Vejamos para o caso que $\lambda$ \'e
+complexo, portanto $\lambda$ \'e da forma 
+\begin{align*}
+	{\lambda} = \frac{-b \pm ki}{2a}
+	\end{align*}
+onde $ki = \sqrt{b^{2} - 4ac}$.
+Portanto, temos que para $\alpha = \beta,$
+\begin{align*}
+	y_1 &= e^{(\frac{-b - ki}{2a})x} =  {e^{\frac{-b}{2a}x}}(cos(\frac{-kx}{2a}) + isen(\frac{-kx}{2a})) \\
+	y_2 &= e^{(\frac{-b + ki}{2a})x} =  {e^{\frac{-b}{2a}x}}(cos(\frac{kx}{2a}) + isen(\frac{kx}{2a}))
+\end{align*}
+como as fun\c c\~oes $cos, sen$ s\~ao limitadas segue que 
+\begin{align*}
+	\lim_{x \rightarrow \infty} y_1 = 0 \\
+	\lim_{x \rightarrow \infty} y_2 = 0 \\
+\end{align*}
+logo, 
+\begin{align*}
+	y_1(x) - y_2 (x) = 0  \quad \textrm{quando} \quad x \rightarrow \infty
+\end{align*}
+para o caso de $\alpha = \beta$ teriamos que 
+\begin{align*}
+	y_1 &= e^{(\frac{-b - ki}{2a})x} =  {e^{\frac{-b}{2a}x}}(cos(\frac{-kx}{2a}) + isen(\frac{-kx}{2a})) \\
+	y_2 &= xe^{(\frac{-b + ki}{2a})x} =  x{e^{\frac{-b}{2a}x}}(cos(\frac{kx}{2a}) + isen(\frac{kx}{2a}))
+\end{align*}
+como no caso anterior as fun\c c\~oes $sen, cos$ s\~ao limitadas e o termo $xe^{\frac{-bx}{2a}} \rightarrow 0$ quando $x
+\rightarrow \infty$. Portanto,
+\begin{align*}
+	y_1(x) - y_2 (x) = 0  \quad \textrm{quando} \quad x \rightarrow \infty.
+\end{align*}
+note que a prova \'e v\'alida desde que para o caso real tenhamos $\alpha < 0$ e $\beta < 0$.
+
+Para $b = 0$ o resultado cont\'inua v\'alido, pois analisando o termo 
+\begin{align*}
+	\sqrt{b^{2} - 4ac}
+\end{align*}
+caso esse seja 0 teriamos 
+\begin{align*}
+	y_1 = 1 \\
+	y_2 = 1 
+\end{align*}
+e portanto,
+\begin{align*}
+	y_1(x) - y_2 (x) = 0  \quad \textrm{quando} \quad x \rightarrow \infty.
+\end{align*}
+as outras op\c c\~oes seriam admitir um valor real ou imagin\'ario que iriam recair nos casos j\'a demonstrados. Note
+que para o caso as provas feitas s\~ao verdadeiras desde que $\alpha < 0$  e $\beta < 0$.
+
+b) Dada a equa\c c\~ao 
+\begin{align*}
+	ay^{(2)}(x) + by^{(1)}(x) + cy(x) = f(x)
+\end{align*}
+onde 
+\begin{align*}
+	f(x) = d
+\end{align*}
+tomemos uma solu\c c\~ao particular da forma
+\begin{align*}
+	y_p(x) = \frac{d}{c}
+\end{align*}
+temos que a solu\c c\~ao geral \'e da forma 
+\begin{align*}
+	y(x) = y_h(x) + y_p(x)
+\end{align*}
+pela letra (a) temos que
+\begin{align*}
+	\lim_{x \rightarrow \infty} y_h(x)  = 0
+\end{align*}
+nota-se que 
+\begin{align*}
+	\lim_{x \rightarrow \infty} y_p(x) = \frac{d}{c}
+\end{align*}
+portanto,
+\begin{align*}
+	y(x) \rightarrow \frac{d}{c} \quad \textrm{quando } \quad x \rightarrow  \infty
+\end{align*}
+
+\textbf{5. Quest\~ao:}\\
+
+a)$x^{2}y^{(2)}(x) + 7xy^{1}(x) + 4y(x) = ln(x^{-3})$
+\end{document}
+
+

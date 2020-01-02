@@ -1,0 +1,223 @@
+O titulo deverá mudar. Pois, o sistema brasileiro tem outras componentes alem do sistema hidrotermico. 
+Entendi que Camila quer que voce modele o sistema brasileiro.
+Abaixo, Eu coloco a linha que estou fazendo a correção e como deve ficar a frase. As vezes, eu coloco uma virgual outras vezes
+tiro, outras vezes adiciona uma palavra, ou corrijo uma palavra,etc.
+
+
+Capitulo Despacho de energia.
+
+Parágrafo 1
+Linha3
+.. tem de acesso a estrutura básica...saneamento básico[tirei a virgula]...
+
+linha5
+...especial, por ser...
+
+linha6
+... caracteristica, o setor....
+
+
+Parágrafo 2
+
+linha1
+
+... tecnológico, particularmente...
+
+linha 4
+... Para exemplificar... [coloquei um r]
+
+
+
+Parágrafo 3
+
+linha 5
+... da lenha pelo GLP- gás liquefeito do petróleo.
+
+
+Parágrafo 4
+
+linha 1
+... Figura 1.1) a} a matriz energética mundial... 
+
+Parágrafo 5
+
+linha 2
+... um considerável...
+
+linha 5
+... localização...
+
+linha 9
+... economia...
+
+Observação olhar a diferença entre perca e perda para uniformizar no texto. 
+
+Parágrafo 10
+
+linha 1
+...associado a produção...
+
+
+A FIGURA DAS USINAS EM CASCATA ESTÁ ESTRANHA. TEVE ALGUM PROBLEMA COM O TEXTO APOS ESTA FIGURA. O TEXTO CONTINUA E APARENTEMENTE ERA PARA INICIAR UM NOVO 
+PARÁGRAFO..
+
+
+Após finalizar o capítulo. Acrescente, o que vai ser encontrado no próximo capítulo.
+
+Capítulo Otimização
+
+linha 3
+ o trecho: ...as características mencionadas... faz referência a certas características as quais você não escreveu na linha anterior. Ao corrigir isso, você
+mencione o despacho de energia definido no capítulo anterior.
+
+
+
+linha 8
+....otimização. Tal problema  é definido por: dados dois conjuntos D e Phi subconjuntos do R^n
+.Seja f:D----R, o objetivo...
+
+
+Na página 8. 
+O primeiro parágrafo não está identado.
+	Pode-se...
+
+no parágrafo seguinte também.
+	Adotando-se
+
+parágrafo que começa com: "O Significado..."
+
+linha 4
+...recíproca ... [acento]
+
+Parágrafo seguinte: faltou identar
+passa um outro parágrafo o outro precisa identar: ...Considerando-se...
+nesse parágrafo:
+
+linha 2
+...assume considerando-se...ideia embasa...
+
+próximo parágrafo
+
+linha4
+... De forma geral, problemas...
+
+
+página 10
+
+linha 2
+...Na prática, a separação...
+
+linha 9
+identar e reescrever ... De forma análoga, pode-se...
+
+identar linha-3 [linha-3 significa a linha 3 de baixo para cima].
+identar e ...pode-se se tornar...
+
+página 11
+
+linha 2
+
+... relaxado possuir condições..
+
+linha 7
+...na figura...
+
+linha 9
+...na figura...
+
+linha 13. Nesta definição precisa explicar o que é R(l,m)
+
+Acho que b é um vetor, ou seja, algum R^m mas voce colocou só R.
+
+parágrafo "Dessa forma..."
+
+linha 2
+
+... Nota-se que para o caso do R^2...
+
+pagina 12
+
+linha 10
+... facilite a busca pela solução do problema linear. Além de não permitir...
+
+linha 12
+... intuito serão tratados...
+
+Na definição 2.0.6 substitur Q por outra letra. Pois, você acaba de definir Q como sendo uma matriz no parágrafo anterior.
+
+Após definição 2.0.6
+...principais de convexidade. Por meio da convexidade...
+
+
+proposição 2.0.3
+...Sejam D_i\subseteq R, tal que i\in I, conjuntos convexos onde I é um conjunto qualquer (possivelmente finito).
+Então, a interseçao D=\cap_{i\in I} D_i....
+
+corolario 2.0.1
+Após prova identar "De fato.."
+
+identar também no próximo parágrafo "Dessa forma..."
+linha 3 
+...quando houver...
+
+pagina 14
+linha 1
+...O fato de se poder trabalhar...
+
+linha 3
+...poliedral. Diretamente deste teorema...
+
+após teorema 2.0.1
+linha2
+...maneira de encontrar...
+
+linha 5
+...além de permitir uma melhor análise...
+
+
+corolario 2.0.2 está mal formulado você não está dizendo o que é provado. Acredito que você quis dizer que o problema "tem" e não tenha.
+
+na demonstração identar "De fato..."
+
+parágrafo seguinte
+linha 1 ...de interesse x assume valores...
+
+página 15
+parágrafo "Oberva-se..."
+identar o parágrafo.
+linha 2
+...limitado. Portanto, há...
+linha 3
+...limitado. Nesse caso... quanto a busca pela solução...
+linha 4
+...programação linear...
+linha 8
+o correto é grosso modo e não a grosso modo.
+
+página 16
+linha 2
+... consituido por n variáveis...
+linha 4
+A natureza dos resultados para a dualidade não deve ser modificada mesmo que o formato do problema primal seja modificado. Contudo,
+esta afirmação é verdadeira desde que o problema dual esteja definido adequadamente.
+
+
+teorema 2.0.2
+linha 1
+...as seguintes...
+no teorema você colocou as trÊs possibilidades mas enumerou erradamente repeitu o (1) duas vezes ficou (1),(2) (1) o último (1) deve ser (3).
+
+Apos o teorema
+linha 3
+...pode-se resolver...
+
+ 
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,806 @@
+\documentclass[a4paper,12pt,reqno,natbib]{amsart}
+
+\usepackage[algoruled,vlined,boxed,longend,english]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{color}
+\usepackage{commath}
+\usepackage{dsfont}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{siunitx}
+\usepackage{stmaryrd}
+\usepackage{subfigure}
+\usepackage{tabu}
+
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\textheight=24.5cm
+\textwidth=16.0cm
+\topmargin=0.0cm
+\oddsidemargin=0.0cm
+\evensidemargin=0.0cm
+
+\theoremstyle{definition}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[subsection]{Defini\c c\~ao}
+\newtheorem*{example*}{Exemplo}
+\newtheorem*{examples*}{Exemplos}
+\newtheorem{exercise}{Exerc\'icio}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{remark*}{Observação}
+\newtheorem*{solution*}{Solução}
+\newtheorem{summary}[theorem]{Summary}
+
+\newcommand{\Rd}{\mathds{R}}
+\newcommand{\dint} {\displaystyle\int}
+\newcommand{\dsum} {\displaystyle\sum}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\derivada}[2]{\frac{#1}{#2}}
+\newcommand{\devidido}[2]{\frac{#1}{#2}}
+\newcommand{\mathbox}[1]{\hspace{2pt}\mbox{#1}}
+\newcommand{\matbox}[2]{\hspace{2pt}#1 \hspace{2pt} #2 \hspace{2pt}}
+
+
+\begin{document}
+
+\textbf{Universidade Federal da Paraíba -- Centro de Informática}
+
+\vspace{0.3 cm}
+
+\textbf{Programa de Pós-Graduação em Modelagem Matemática e Computacional}
+
+\vspace{0.3 cm}
+
+\textbf{Disciplina: Equações Diferenciais Ordinárias}
+
+\vspace{0.3 cm}
+
+\textbf{Segunda Lista de Exercícios Teóricos}
+
+\vspace{0.3 cm}
+
+\textbf{Data de entrega: 12/11/2019}
+
+\vspace{0.3 cm}
+
+\textbf{Aluno: Jefferson Bezerra dos Santos}
+
+
+\vspace{1.5 cm}
+
+
+
+\begin{center}
+\boxed{\textit{Aplicação 1: Crescimento Populacional}}
+\end{center}
+
+\vspace{0.7 cm}
+
+\begin{exercise}
+Sabe-se que a população de uma certa comunidade cresce a uma taxa proporcional ao número de pessoas presentes em qualquer instante. \\
+(a) Se a população duplicou em 5 anos, quando ela triplicará? \\
+(b) Suponha que a população da comunidade seja $10000$ após $3$ anos, ou seja, $P(3) = 10000$. Quais os valores aproximados de $P(0)$ e $P(10)$?
+\end{exercise}
+Solu\c c\~ao: \\
+a)
+\begin{align*}
+	\derivada{dp}{dt}  &= \alpha p; \alpha > 0 \\
+	p(0) &= p_0
+\end{align*}
+\begin{align*}
+	p(5) &= 2p_0 \Rightarrow p_0e^{5\alpha} = 2p_0 \Rightarrow \alpha = \frac{ln(2)}{5} \\
+	p(t_1) &= 3t_0 \Rightarrow p_0 e^{\alpha t_1} = 3p_0 \Rightarrow \alpha = ln(3) \Rightarrow t_1 =
+	\frac{ln(3)}{2} \Rightarrow t_1 = \frac{ln(3)}{\frac{ln(2)}{5}} \Rightarrow t_1 \approx 7,92 \mathbox{anos}
+\end{align*}
+b)
+\begin{align*}
+	p(3) = 10.000 \Rightarrow 10.000 = p(0)e^{3\alpha} \Rightarrow p(0) = \frac{10.000}{e^{\frac{3ln(2)}{5}}} \approx
+	6.597,53
+\end{align*}
+\begin{align*}
+	p(10) = 10.000 \Rightarrow 10.000 = p(0)e^{10\alpha} \Rightarrow p(0) = \frac{10.000}{e^{\frac{10ln(2)}{5}}} =
+	2.500
+\end{align*}
+
+
+\vspace{0.6 cm}
+
+\begin{exercise}
+A população de uma cidade cresce a uma taxa proporcional à população em qualquer tempo. Sua população inicial de $500$ habitantes aumenta $15\%$ em $10$ anos. Qual será a população em $30$ anos?
+\end{exercise}
+Solu\c c\~ao:
+\begin{align*}
+	\derivada{dp}{dt}  &= \alpha p; \alpha > 0 \\
+	p(0) &= p_0\\
+	p_0 &= 500
+\end{align*}
+\begin{align*}
+	P(10) &= 500 + \frac{15}{100}500 \Rightarrow P(10) = 575\\
+	P(10) &= 500e^{10\alpha} \Rightarrow 575 = 500e^{10\alpha} \Rightarrow 10\alpha = ln(\frac{575}{500}) \Rightarrow
+	\alpha = \frac{1}{10}ln(\frac{575}{500})\\
+	P(30) &= 500e^{30\alpha} \Rightarrow P(30) = 500e^{30(\frac{1}{10}ln(\frac{575}{500}))} \Rightarrow P(30) \approx 760,43
+\end{align*}
+
+\vspace{0.6 cm}
+
+\begin{exercise}
+Usando o conceito de taxa líquida, que é a diferença entre a taxa de natalidade e a taxa de mortalidade na comunidade, determine uma equação diferencial que governe a evolução 
+da população $P(t)$, se a taxa de natalidade for proporcional à população presente no instante t, mas a de mortalidade for proporcional ao quadrado da população presente no 
+instante t. Em seguida, determine uma forma geral para a solução dessa equação.
+\end{exercise}
+Solu\c c\~ao:
+\begin{align*}
+	\frac{dp}{dt} = \alpha - \beta p^{2}
+	p(0) = p_0
+\end{align*}
+onde:
+\begin{itemize}
+	\item $\alpha$ \'e taxa de natalidade.
+	\item $\beta$ \'e taxa de mortalidade.
+\end{itemize}
+\begin{align*}
+	\frac{dp}{p(\alpha - \beta p)} \bigg \vert_{p_0}^{p(t)}= dt \bigg \vert_{p_0}^{p(t)} 
+	&\Rightarrow \int_{p_0}^{p(t)} =\left (\frac{\frac{1}{\alpha} }{p} +
+	\frac{\frac{\beta}{\alpha} }{\alpha - \beta p}  \right ) dp = \int_{0}^{t} dt\\
+	&\Rightarrow \frac{1}{\alpha} \hspace {2pt}ln \hspace{2pt}p \bigg \vert_{p_0}^{p(t)} +
+	\frac{\beta}{\alpha}(-\frac{1}{\beta}) \matbox{ln}{(\beta - \alpha p)}\bigg |_{p_0}^{p(t)} = t \\
+	&\Rightarrow \frac{1}{\alpha} \hspace {2pt}ln \hspace{2pt}p \bigg \vert_{p_0}^{p(t)} -
+	\frac{1}{\alpha} \matbox{ln}{(\beta - \alpha p)}\bigg |_{p_0}^{p(t)} = t \\
+	&\Rightarrow \frac{1}{\alpha} +\left [ ln p(t) \hspace{2pt} - ln p_0\hspace{2pt} \right ] - 
+	\frac{1}{\alpha} \left [ ln (\alpha - \beta p(t)) \hspace{2pt} - ln (\alpha - \beta p_0)\hspace{2pt} \right ] = t \\
+	&\Rightarrow \frac{1}{\alpha} +\left [ ln p(t) \hspace{2pt} - ln p_0\hspace{2pt} \right ] + 
+	\frac{1}{\alpha} \left [ ln (\alpha - \beta p_0)\hspace{2pt}  - ln (\alpha - \beta p(t)) \hspace{2pt} \right ]= t\\
+	&\Rightarrow  \frac{1}{\alpha}\left [ ln \frac{p(t)}{\alpha - \beta p(t)}\right ] + \frac{1}{\alpha}\left
+	[ ln \frac{\alpha - \beta p_0}{p_0}\right ] = t \\
+	&\Rightarrow   ln \left (\frac{p(t)}{\alpha - \beta p(t)}\right ) + 
+	 ln \left ( \frac{\alpha - \beta p_0}{p_0}\right) =  t \\
+	 &\Rightarrow \boxed{p(t) = \frac{\alpha p_0 e^{\alpha t}}{\alpha - \beta p_0 + \beta p_0 e^{\alpha t}}}
+\end{align*}
+\vspace{0.6 cm}
+
+\begin{exercise}
+Suponha que um estudante portador de um vírus da gripe retorne para um campus universitário fechado, onde encontram-se outros 999 estudantes saudáveis. \\
+(a) Determine a equação diferencial que descreve o número de pessoas x(t) que contrairão a gripe, se a taxa segundo a qual a doença se espalha for proporcional ao número de interações entre os estudantes gripados e os que ainda não foram expostos ao vírus. \\
+(b) Determine a quantidade de estudantes infectados no instante $t = 10$, sabendo que $x(1) = 10$.
+\end{exercise}
+Solu\c c\~ao:\\
+a)
+\begin{align*}
+	\frac{dx}{dy} = kxy\\
+	x(0) = 1
+\end{align*}
+onde:
+\begin{itemize}
+	\item $x + y = n$ \mathbox{n\'umeros de habitantes}.
+	\item $y = n -x$ $\Rightarrow$ $\frac{dx}{dt} = kx(n - x)$.
+\end{itemize}
+Temos que:
+\begin{align*}
+	\int_{x(0)}^{x(t)} \frac{1}{x(n-x)}dx &= \int_{0}^{t} kdt \Rightarrow \int_{x(0)}^{x(t)}
+	(\frac{\frac{1}{n}}{x} + \frac{\frac{1}{n}}{n-x}) dx = kt \Rightarrow \\
+	&\Rightarrow \frac{1}{n}\left [ ln(x) - ln (n -x)\right ] \bigg \vert_{1}^{x(t)} = kt \\
+	&\Rightarrow  ln\left (\frac{x}{n-x} \bigg \vert_{1}^{x(t)} \right ) = nkt\\
+	&\Rightarrow  ln\left (\frac{x}{n-x} \right ) - ln\left (\frac{x}{n-1} \right ) = nkt  \\ 
+	&\Rightarrow  \frac{x(n-1)}{n-x} =\frac{1}{n-1} e^{nkt}  \\ 
+	&\Rightarrow \boxed{x(t) = \frac{ne^{nkt}}{(n-1) + e^{nkt}}} 
+\end{align*}
+b)
+\begin{align*}
+	t = 10 \\
+	x(1) = 10\\
+	n = 1000
+\end{align*}
+
+Temos que,
+\begin{align*}
+   \frac{x(1)(1000-1)}{1000-x(1)} &=\frac{1}{1000-1} e^{1000k}\\
+	&\Rightarrow   \frac{10(1000-1)}{1000-10} =\frac{1}{1000-1} e^{1000kt}  \\
+	&\Rightarrow \boxed{k \approx 0.0092} 
+\end{align*}
+Portanto,
+	\begin{align*}
+		x(t) &= \frac{ne^{nkt}}{(n-1) + e^{nkt}}\\
+		&\Rightarrow x(10) = \frac{1000e^{1000(0.0092)10}}{(1000-1) + e^{1000(0.0092)10}} \\
+		&\Rightarrow \boxed{x(10) \approx 1000}
+	\end{align*}
+\newpage
+
+\begin{center}
+\boxed{\textit{Aplicação 2: Resfriamento/Aquecimento de Corpos}}
+\end{center}
+
+\vspace{0.7 cm}
+
+\begin{exercise}
+Um termômetro é retirado de uma sala, em que a temperatura é $70^{o}C$, e colocado no lado de fora, onde a temperatura é $10^{o}C$. Após $30\,s$, o termômetro marca $50^{o}C$. \\ 
+(a) Qual será a temperatura marcada pelo termômetro no instante $t = 60\,s$? \\
+(b) Quanto levará para marcar $15^{o}C$?
+\end{exercise}
+Solu\c c\~ao:\\
+a) 
+\begin{align*}
+	&\theta_a = 10\\
+	&\frac{d\theta}{dt} = -\alpha(\theta - {\theta_a}) \Rightarrow\\
+	&\Rightarrow \frac{d\theta}{\theta - {\theta_a}} = -\alpha dt\\
+	&\Rightarrow  \theta(t) = 10 + ke^{-\alpha t}
+\end{align*}
+
+{
+	\setlength{\jot}{-8pt}
+\begin{align*}
+	\theta (0) = 70& \hspace{20pt} 70 = 10 + k \Rightarrow k = 60\\
+	&\Rightarrow\\\hspace{12pt}  
+	\theta (30) = 50& \hspace{20pt} 50 = 10 + ke^{-30\alpha} \Rightarrow \alpha = -\frac{ln (\frac{2}{3})}{30}\\\\
+	&\Rightarrow \alpha \approx 0.0135
+ \end{align*}
+}
+\begin{align*}
+	\theta(60) = 10 + 60e^{-60(0.0135)}\\
+	\theta(60) \approx 36.79
+\end{align*}
+
+b)\\
+\begin{align*}
+	\theta (t_1) &= 15 \Rightarrow 15 = 10 + 60e^{-(0.0135)t_1}\\
+	t_1 &= (\frac{-ln(\frac{1}{12})}{60(0.0135)}) \Rightarrow t_1 \approx 184 \hspace{3pt}s \\
+	&\Rightarrow \boxed{t_1 \approx \hspace{3pt} \mbox{3 minutos e 4 segundos a partir do instante inicial}}
+\end{align*}
+\vspace{0.6 cm}
+
+\begin{exercise}
+Segundo a lei de Newton, a velocidade de resfriamento de um corpo no ar é proporcional à diferença entre as temperaturas do corpo e do ar. Se a temperatura do ar é $20^{o}C$ e o 
+corpo se resfria em $20$ minutos de $100^{o}C$ para $60^{o}C$, dentro de quanto tempo sua temperatura descerá para $30^{o}C$?
+Solu\c c\~ao:
+\begin{align*}
+	&\theta_a = 20\\
+	&\frac{d\theta}{dt} = -\alpha(\theta - {\theta_a}) \Rightarrow\\
+	&\Rightarrow \frac{d\theta}{\theta - {\theta_a}} = -\alpha dt\\
+	&\Rightarrow  \theta(t) = 20 + ke^{-\alpha t}
+\end{align*}
+
+{
+	\setlength{\jot}{-8pt}
+\begin{align*}
+	\theta (0) = 100& \hspace{20pt} 100 = 20 + k \Rightarrow k = 80\\
+	&\Rightarrow\\\hspace{12pt}  
+	\theta (20) = 60& \hspace{20pt} 60 = 20 + ke^{-20\alpha} \Rightarrow \alpha = -\frac{ln (\frac{1}{2})}{20}\\\\
+	&\Rightarrow \alpha \approx 0.035
+ \end{align*}
+}
+Portanto,
+\begin{align*}
+	\theta (t_1) &= 30 \Rightarrow 30 = 20 + 80e^{-0.035t_1}\\
+	t_1 &= (\frac{-ln(\frac{1}{8})}{0.035}) \Rightarrow t_1 \approx 59.41 \hspace{3pt}m \\
+	&\Rightarrow \boxed{t_1 \approx \hspace{3pt} \mbox{59,41 minutos a partir do instante inicial}}
+\end{align*}
+\end{exercise}
+
+\vspace{0.6 cm}
+
+\begin{exercise}
+Um indivíduo é encontrado morto em seu escritório pela secretária que liga imediatamente para a polícia. Quando a polícia chega, 2 horas depois da chamada, examina o cadáver e 
+o ambiente, tirando os seguintes dados: A temperatura do escritório era de $20^{o}C$, o cadáver inicialmente tinha uma temperatura de $35^{o}C$. Uma hora depois medindo novamente 
+a temperatura do corpo obteve $34,2^{o}C$. Supondo que a temperatura de uma pessoa viva é de $36,5^{o}C$, podemos considerar que a secretária é suspeita? Por quê? 
+\begin{align*}
+	&\theta_a = 20\\
+	&\frac{d\theta}{dt} = -\alpha(\theta - {\theta_a}) \Rightarrow\\
+	&\Rightarrow \frac{d\theta}{\theta - {\theta_a}} = -\alpha dt\\
+	&\Rightarrow  \theta(t) = 20 + ke^{-\alpha t}
+\end{align*}
+
+$$ \bigg \{
+\begin{matrix}
+	\theta (0) &=& 35\\
+	\theta (20) &=& 34,2	 
+\end{matrix}
+\Rightarrow 
+\bigg \{
+\begin{matrix}
+	20 + ke^{-2\alpha} &=& 35\\
+	20 + ke^{-3\alpha} &=& 34,2	 
+\end{matrix}
+\Rightarrow 
+\bigg \{
+\begin{matrix}
+	ke^{-2\alpha} &=& 15 &\hspace{5pt} \mbox{(1)}\\
+	 ke^{-3\alpha} &=& 14,2&\hspace{5pt} \mbox{(2)}	 
+\end{matrix}
+$$
+Temos que,
+\begin{align*}
+	e^{\alpha} \Rightarrow \alpha = ln \hspace{3pt}\left (\frac{15}{14,2}\right ) \approx 0,0548.
+\end{align*}
+Fazendo a substitui\c c\~ao do $\alpha$ encontrado em: (1)
+\begin{align*}
+	ke^{-0,1096} = 15 \Rightarrow k = 15e^{0,1096} \Rightarrow \boxed {k \approx 16,7374.}
+\end{align*}
+Portanto,
+\begin{align*}
+\theta(t) &= 36,5 \Rightarrow 20 + 16,7374e^{-0,0548}t = 36,5 \Rightarrow \\
+&\Rightarrow e^{-0,0548t} = \frac{16,5}{16,7374} \Rightarrow \\
+&\Rightarrow \boxed{t \approx 0,26 \approx \hspace{2pt} \mbox{15 min}}
+\end{align*}
+Conlus\~ao:\\
+A secret\'aria \'e suspeita, pois ligou 15 minutos antes da morte.
+\end{exercise}
+
+\vspace{0.6 cm}
+
+\begin{exercise}
+Uma pequena barra de metal, cuja temperatura inicial é de $20^{o}C$, é colocada em um recipiente com água fervendo. Quanto tempo levará para a barra atingir $90^{o}C$ se sua temperatura aumentar $2^{o}C$ em $1$ segundo?
+\end{exercise}
+Solu\c c\~ao:\\
+Assumindo que a temperatura de ebuli\c c\~ao d'\'agua \'e 100 graus celsius.
+\begin{align*}
+	&\theta_a = 100\\
+	&\frac{d\theta}{dt} = -\alpha(\theta - {\theta_a}) \Rightarrow\\
+	&\Rightarrow \frac{d\theta}{\theta - {\theta_a}} = -\alpha dt\\
+	&\Rightarrow  \theta(t) = 100 + ke^{-\alpha t}
+\end{align*}
+\[%BEGIN 
+\bigg \{
+\begin{matrix}
+	\theta (0) &=& 20\\
+	\theta (1) &=& 22	 
+\end{matrix}
+\Rightarrow 
+\bigg \{
+	\begin{matrix*}[l]
+		100 + k &=& 20 \Rightarrow k = -80\\
+		100 + ke^{-\alpha} &=& 22 \Rightarrow \alpha = -ln\left (\frac{100-22}{80}\right ) \Rightarrow \alpha \approx
+		0,025
+	\end{matrix*}
+\]%END
+Com o valor de $\alpha$ calculado temos que,
+\begin{align*}
+	\theta(t_1) &= 90 \Rightarrow 100 + 80e^{-0,025t_1} = 90 \Rightarrow  t_1 = -\frac{ln \frac{100 -90}{80}}{0,025}
+	\Rightarrow t_1 \approx 83,17 \hspace{3pt}s \\
+	&\Rightarrow  \boxed{t_1 \approx \hspace{3pt} \mbox{1 minuto e 23 segundos} }
+\end{align*}
+
+\newpage
+
+
+
+\begin{center}
+\boxed{\textit{Aplicação 3: Problemas de Mistura}}
+\end{center}
+
+\vspace{0.7 cm}
+
+\begin{exercise}
+Suponha que um grande tanque para misturas contenha inicialmente $300\,l$ de fluido, no qual foram dissolvidos $20\,kg$ de sal. Água pura é bombeada para dentro do tanque a uma taxa de $10\,l/min$, e então, quando a solução está bem misturada, ela é bombeada para fora na mesma taxa. \\
+(a) Determine uma equação diferencial para a quantidade de sal no tanque no instante t. \\
+(b) O que acontece quando $t \rightarrow +\infty$? \\
+(c) Após quanto tempo, a quantidade de sal atingirá $1\%$ da quantidade inicial?
+\end{exercise}
+a)\\
+Solu\c c\~ao:
+\begin{itemize}
+	\item Q(t) $\rightarrow$ Quantidade de sal no instante t (Kg).
+	\item V(t)$\rightarrow$ Quantidade de Salmoura no instante t (l).
+	\item C(t)$\rightarrow$ Concentra\c c\~ao de sal na mistura no instante t.
+	\item $W_{in}$ $\rightarrow$ Vaz\~ao de entrada.
+	\item $W_{out}$ $\rightarrow$ Vaz\~ao de sa\'ida.
+	\item $V(t)$ $\rightarrow$ Volume no instante de tempo t.
+	\item $C_{in}$ $\rightarrow$ Concentra\c c\~ao inicial.
+	\item $C_{out}$ $\rightarrow$ Concentra\c c\~ao final.
+\end{itemize}
+onde:
+\begin{align*}
+	c(t) &= \frac{Q(t)}{V(t)} \\
+	V(t) &= v_0 + (W_{in} - W_{out}) \Rightarrow \frac{V(t) - v_0}{t} = W_{out}\\
+	Q_{in} &= C_{in} W_{in} \\
+	Q_{in} &= C_{out} W_{out} 
+\end{align*}
+
+Temos que:
+\begin{align*}
+	\frac{dQ}{dt} &= Q_{in} - Q_{out} \\
+	&\Rightarrow \frac{dQ}{dt} = Q_{in} - \frac{Q(t)}{V(t)} \\
+	&\Rightarrow \frac{dQ}{dt} = C_{in} - \frac{Q(t)}{v_0 + (W_{in} + W_{out})} \\
+	&\Rightarrow \boxed{\frac{dQ}{dt} + \frac{Q(t)}{v_0 + (W_{in} + W_{out})}  = C_{in}} 
+\end{align*}
+Dados do problema,
+\begin{itemize}
+	\item $v_0 = 300 l$ 
+	\item $Q_0 = 20 Kg$ 
+	\item $W_{in} = W_{out} = 10 \hspace{2pt}\mbox{l/min}$ 
+	\item $c_{in} = 0$
+\end{itemize}
+portanto,
+\begin{align*}
+	\frac{dQ}{dt} &=\left [ \frac{10}{300 + 0.t}\right ]Q  = 0 \Rightarrow \frac{dQ}{dt} = - \frac{1}{30}Q \Rightarrow \\
+	& \Rightarrow ln \hspace{2pt} = - \frac{1}{30}t + C \Rightarrow Q(t) = e^{-\frac{1}{30t}}c_1
+\end{align*}
+usando a condi\c c\~ao inicial $Q(0) = c_1 = Q_0$
+\begin{align*}
+	Q(t) &= Q_0 e^{-\frac{1}{30t}} \Rightarrow \\
+	&\Rightarrow \boxed{Q(t) = 20 e^{-\frac{1}{30t}}} 
+\end{align*}
+b)\\
+\begin{align*}
+	\lim_{t\rightarrow \infty} Q(t) = 0
+\end{align*}
+c)\\
+\begin{align*}
+	Q(t_1) &= \frac{1}{100}Q_0 \Rightarrow 20e^{-\frac{1}{30t_1}} = \frac{1}{100}20 \Rightarrow \\
+	&\Rightarrow t_1 = -30\hspace{3pt} ln(0,01d) \Rightarrow \boxed{t_1 \approx 138 \hspace{2pt} \mbox{minutos a partir
+	do instante inicial}} 
+\end{align*}
+
+\vspace{0.6 cm}
+
+\begin{exercise}
+Um tanque contém $200\,l$ de fluido no qual foram dissolvidos $30\,g$ de sal. Uma salmoura contendo $1\,g$ de sal por litro é então bombeada para dentro do tanque a uma taxa de 
+$4\,l/min$. A solução bem misturada é então bombeada para fora à taxa de $1\,l/min$. Ache a quantidade de sal no tanque no instante $t = 30\,min$.
+\end{exercise}
+Solu\c c\~ao:\\
+Dados do problema:
+\begin{itemize}
+	\item $v_0   $ = 200 l;
+	\item $Q_0   $  = 20 kg;
+	\item $C_{in}$ = 1;
+\end{itemize}
+\begin{align*}
+	&\frac{dQ}{dt} +\left (\frac{w_{out}}{v_0 + (W_{in} - W_{out})}\right ) Q(t) = C_{in}W_{in} \Rightarrow \\
+	\Rightarrow &\frac{dQ}{dt} +\left (\frac{1}{v_0 + (200 + (4 - 1))}\right ) Q(t) = C_{in}W_{in} \Rightarrow\\
+	\Rightarrow &\frac{dQ}{dt} +\left (\frac{1}{203}\right ) Q(t) = 4 \Rightarrow\\
+	\Rightarrow &\frac{dQ}{4 - \frac{Q}{203}} = dt \Rightarrow Q(t) = 203 (4 - c_1e^{-\frac{t}{203}})
+\end{align*}
+Aplicando a condi\c c\~ao inicial $Q_0 = Q(0)$ temos que,
+\begin{align*}
+	c_1 = 4 - \frac{Q_0}{203} \Rightarrow c_1 = \frac{812 - Q_0}{203}
+\end{align*}
+substituindo,
+\begin{align*}
+	Q(t) &= 203\left [ 4 + \frac{Q_0 - 812}{203}e^{-\frac{t}{203}}\right ]  \\
+	&\Rightarrow \boxed {Q(t) = 812 +\left (Q_0 - 812\right )e^{-\frac{t}{203}}} \\
+\end{align*}
+Para $t = 30$ temos que,
+\begin{align*}
+	&Q(30) = 812 +\left (20 - 812\right )e^{-\frac{30}{203}} \Rightarrow \\
+	&\Rightarrow \boxed{Q(30) \approx \hspace{3pt} \mbox{128,8 litros}}
+\end{align*}
+
+\vspace{0.6 cm}
+
+\begin{exercise}
+Um grande tanque contém $500\,l$ de água pura. Uma salmoura contendo $2\,kg$ de sal por litro é bombeada para dentro do tanque a uma taxa de $5\,l/min$. A solução bem misturada 
+é bombeada para fora a uma taxa de $1\,l/min$. Determine a quantidade e a concentração de sal no instante $t = 5\,min$?
+\end{exercise}
+Dados iniciais do problema s\~ao:
+\begin{itemize}
+	\item $v_0    $ = 500 l;
+	\item $c_{in} $ = 2 kg/l;
+	\item $w_{in} $ = 5 l/min;
+	\item $w_{out}$ = 1 l/min.
+\end{itemize}
+Temos que,
+\begin{align*}
+	&\frac{dQ}{dt} + \left (\frac{1}{ 500 + (5-1)}\right ) =  2.4 \\
+	&\Rightarrow \frac{dQ}{dt}+ \left (\frac{1}{ 504}\right ) Q= 8  \\
+	&\Rightarrow Q(t) = 504\left [8 - c_1e^{-\frac{t}{504}}\right ] \\
+\end{align*}
+Aplicando a condi\c c\~ao inicial temos que,
+\begin{align*}
+	c_1 = \frac{4032 - Q_0}{504}
+\end{align*}
+Substituindo temos que,
+\begin{align*}
+	&Q(t) = 504\left [\frac{4032 -(4032 - Q_0)}{504}e^{-\frac{t}{504}}\right ] \Rightarrow \\
+	&\Rightarrow Q(t) = 4032 -(4032 - Q_0)e^{-\frac{t}{504}}
+\end{align*}
+calculadndo o $Q_0$,
+\begin{align*}
+	Q_{in} = c_{in}W_{in} \Rightarrow Q_0 = 2.5 \Rightarrow Q_0 = 10.
+\end{align*}
+portanto,
+\begin{align*}
+	Q(5) = 4032 - (4032 -10)e^{-\frac{5}{504}} \Rightarrow  \boxed{Q(5) \approx \hspace{2pt} \mbox{49,70 quilos.}}
+\end{align*}
+O volume em qualquer instante de tempo $t$ \'e dado por,
+\begin{align*}
+	V(t) = v_0 +\left (W_{in} - W_{out}t\right ) \Rightarrow V(5) = 500 + (5-1)5 \Rightarrow V(5) = 520
+\end{align*}
+portanto, a concentra\c c\~ao no instante $t = 5$ \'e dada por,
+\begin{align*}
+	C(t) = \frac{Q(5)}{V(5)} \Rightarrow C(5) = \frac{49,70}{520} \Rightarrow \boxed{C(5) = 0,095 \hspace{2pt}\mbox{kg/l}.}
+\end{align*}
+\begin{center}
+\vspace{0.7 cm}
+\boxed{\textit{Aplicação 4: Decaimento de substâncias radioativas}}
+\end{center}
+
+\vspace{0.7 cm}
+
+\begin{exercise}
+O isótopo radioativo de chumbo, $Pb^{209}$, decresce a uma taxa proporcional à quantidade presente em qualquer tempo. Sua meia vida é de $3,3$ horas. Se $1\,g$ de chumbo está 
+presente inicialmente, quanto tempo levará para $90\%$ de chumbo desaparecer?
+\end{exercise}
+Solu\c c\~ao:
+\begin{align*}
+	\frac{dQ}{dt} = -\alpha Q \Rightarrow Q(t) = Q_0e^{-\alpha t}\\
+	Q(0) = Q_0
+\end{align*}
+Dados do problema,
+\begin{align*}
+	Q_0 &= 1 \hspace{2pt}g\\
+	\mbox{mv} &= 3,3 \hspace{2pt} horas 
+\end{align*}
+\begin{align*}
+	Q(3,3) = \frac{1}{2}Q_0 \Rightarrow Q_0e^{-3,3\alpha} = \frac{1}{2}Q_0 \Rightarrow
+	\alpha = -\frac{ln(\frac{1}{2})}{3,3} \Rightarrow \alpha \approx 0,21
+\end{align*}
+portanto,temos que o instante de tempo $t_1$ procurado \'e dado na forma,
+\begin{align*}
+	Q(t_1) = \frac{10}{100}Q_0 \Rightarrow Q_0e^{-0,21 t_1} = \frac{1}{10} \Rightarrow
+	-\frac{ln(\frac{1}{10})}{0,21} \Rightarrow \boxed{t_1 \approx \mbox{10,96 horas}} 
+\end{align*}
+\vspace{0.6 cm}
+
+\begin{exercise}
+Inicialmente havia $100\,mg$ de uma substância radioativa. Após $6$ horas, a massa diminui $3\%$. Se a taxa de decrescimento é proporcional à quantidade de substância 
+presente em qualquer tempo, determinar a meia vida desta substância. Qual a quantidade remanescente após $24$ horas? 
+\end{exercise}
+Dados do problema,
+\begin{align*}
+	Q_0 = 100 \enskip mg\\
+	Q(6) = 0,97Q_0
+\end{align*}
+Temos que,
+\begin{align*}
+	Q(t)&= 0,97Q_0 \Rightarrow Q_0 e^{-6\alpha} = 0,97Q_0 \Rightarrow \alpha \approx 0,00508 \\
+	Q(t) &= 100e^{-0,00508t}
+\end{align*}
+a meia-vida \'e dada por,
+\begin{align*}
+	Q(t) = \frac{1}{2}Q_0 \Rightarrow Q_0 e^{-0,00508t} = 0,5Q_0 \Rightarrow \boxed{ t \approx \mbox{138 horas}}
+\end{align*}
+ap\'os 24 horas a quantidade ser\'a dada por,
+\begin{align*}
+	Q(24) = 100e^{-0,00508(24)} \Rightarrow \boxed{Q(24) \approx \mbox{8,87 mg}}
+\end{align*}
+
+\vspace{0.6 cm}
+
+\begin{exercise}
+Em um pedaço de madeira queimada, ou carvão, verificou-se que $85,5\%$ do $C^{14}$ tinha se desintegrado. Sabendo que a meia vida do $C^{14}$ é de $5730$ anos, qual a idade da madeira?
+\end{exercise}
+Dados do problema,
+\begin{align*}
+	Q(t) = \frac{1}{2}Q_0 \Rightarrow Q(5730) = \frac{1}{2}Q_0 \Rightarrow Q_0 e^{-5730\alpha} = \frac{1}{2}Q_0 \Rightarrow \alpha =
+	-\frac{ln(\frac{1}{2})}{5730} \Rightarrow \alpha \approx 0,00012
+\end{align*}
+calculado o tempo $t_1$ procurado por,
+\begin{align*}
+	Q(t_1) = \frac{14,5}{100}Q_0 \Rightarrow  Q_0 e^{-5730(0,00012) t_1} = \frac{14,5}{100} Q_0 \Rightarrow t_1 =
+	-\frac{ln(\frac{14,5}{100})}{0,6876} \Rightarrow t_1 \approx 2,80 \Rightarrow \\
+	\Rightarrow \boxed{t_1 \approx \mbox{2 anos e 9 meses.}}
+\end{align*}
+
+\vspace{0.7 cm}
+
+\begin{center}
+	\boxed{\textit{Aplicação 5: Queda de Corpos}}
+\end{center}
+
+\vspace{0.7 cm}
+
+\begin{exercise}
+Deixa-se cair de uma altura de $150\,m$ um corpo de $15\,kg$ de massa, sem velocidade inicial. Desprezando a resistência do ar, determine a expressão da velocidade $v(t)$ e da posição $y(t)$ do corpo num instante t. Qual o tempo necessário para o corpo atingir o solo?	
+\end{exercise}
+Solu\c c\~ao:\\
+Dados do problema,
+\begin{align*}
+	v(0) &= 0\\
+	m & = 15 \\
+	 h & = 150\\
+\end{align*}
+Como o atrio \'e disprez\'ivel temos que,
+\begin{align*}
+	\frac{dv}{dt} = g \Rightarrow v(t)  = gt 
+\end{align*}
+aplicando a condi\c c\~ao incial temos que,
+\begin{align*}
+	v(0) = 0 \Rightarrow v(t) = gt 
+\end{align*}
+A posi\c c\~a ser\'a dada por,
+\begin{align*}
+	\frac{ds}{dt} = gt \Rightarrow s(t) = \frac{gt^{2}}{2}
+\end{align*}
+portanto, adotando $g = 10$ temos 
+\begin{align*}
+	150 = \frac{10(t^{{2}})}{2} \Rightarrow t = (30)^{\frac{1}{2}}  \Rightarrow t \approx 5,48s
+\end{align*}
+\vspace{0.6 cm}
+
+\begin{exercise}
+Deixa-se cair de uma altura de $30\,m$ um corpo de $30\,kg$, com uma velocidade inicial de $3\,m/s$. Admitindo que a
+resistência do ar seja proporcional à velocidade e que a velocidade-limite é de $43\,m/s$, determine a expressão da
+velocidade $v(t)$ e da posição $y(t)$ do corpo num instante t.\\
+\end{exercise}
+Dados do problema,
+\begin{align*}
+	s(0) & = 30 \\
+	v(0) & = 3 \\
+	v_{lim} & = 43 \\
+\end{align*}
+Considerando o atrito temos que,
+\begin{align*}
+	m\frac{dv}{dt} + kv = mg
+\end{align*}
+aplicando o fator integrante segue que,
+\begin{align*}
+	v(t) = g\frac{m}{k} + ce^{\frac{-kt}{m}}
+\end{align*}
+da velocidade limite e aplicando a $g = 10$temos,
+\begin{align*}
+	&\lim_{t\rightarrow\infty}v(t) = 43 \Rightarrow  \lim_{t\rightarrow\infty}\left (\frac{300}{k} +
+	c e^{-\frac{kt}{30}}\right ) = 43 \\ 
+	&\Rightarrow k = \frac{300}{43}
+\end{align*}
+usando a condi\c c\~ao inicial,
+\begin{align*}
+	v(0) = 3 \Rightarrow 43 + c \Rightarrow c = -40
+\end{align*}
+subsituindo k e c na equa\c c\~ao da velocide temos que,
+\begin{align*}
+	v(t) = 10(30)\frac{300}{43} \Rightarrow  v(t) = 43 - 40e^{-\frac{10}{43}}
+\end{align*}
+A equa\c c\~a do espa\c co \'e a derivada da velocidade, portanto,
+\begin{align*}
+	\frac{ds}{dt} &= 43 - 40e^{-\frac{10}{43}} \Rightarrow s(t) = 43t - 40\left (\frac{-43}{10}
+	e^{\frac{-10t}{43}}\right ) + c_1 \Rightarrow 
+	s(t) &= 43t + 172e^{\frac{-10t}{43}} + c_1
+\end{align*}
+aplicando a condi\c c\~ao inicial $s(0) = 30$ temos que,
+\begin{align*}
+	s(0) &= 30 \Rightarrow 172 + c_1 = 30 \Rightarrow c_1 = -142 \\
+	s(t) &= 43t + 172e^{\frac{-10}{43}} 
+\end{align*}
+\vspace{0.6 cm}
+
+\begin{exercise}
+Deixa-se cair de uma altura de $300\,m$ uma bola de $75\,kg$. Determine a velocidade limite $v$ da bola, se a força, devido à resistência do ar, é de $-0,5v$.
+\end{exercise}
+\begin{align*}
+	&\lim_{t\rightarrow\infty}v(t) = \lim_{t\rightarrow\infty}\left (\frac{750}{0,5} +
+	c e^{-\frac{kt}{30}}\right ) =\enskip \mbox{1500 m/s} \\ 
+\end{align*}
+
+
+\newpage
+
+
+
+\begin{center}
+\boxed{\textit{Aplicação 6: Circuitos Elétricos}}
+\end{center}
+
+\vspace{0.7 cm}
+
+\begin{exercise}
+Uma força eletromotriz é aplicada a um circuito em série $LR$ no qual a indutância é de $0,1\,H$ e a resistência é de $50\,\Omega$. Ache a corrente I(t), sabendo que $I(0) = 0$. Determine a corrente quanto $t \rightarrow \infty$. Use $E = 30\, V$.
+\end{exercise}
+Solu\c c\~ao:\\
+Dados do problema,
+\begin{align*}
+	&I(0) = 0\\
+	& L = 0,1\\
+	&R = 50\\
+	& E(t) = 30v
+\end{align*}
+O sistema \'e tipo LR, portanto utilizando as l\'eis de kirchhoff temos que,
+\begin{align*}
+	L\frac{di}{dt} + Ri = E(t) \Rightarrow \frac{di}{dt} + \frac{R}{L}i = \frac{E(t)}{L}
+\end{align*}
+portanto, temos que
+\begin{align*}
+	\frac{di}{dt} + \frac{50}{0,1}i = \frac{30}{0,1} \Rightarrow \frac{di}{dt} + 500i = 300 \Rightarrow i(t) =
+	\frac{300}{500} - \frac{c_1e^{-500t}}{500} 
+\end{align*}
+Aplicando a condi\c c\~ao inicial temos que,
+\begin{align*}
+	i(0) = \frac{300 - c_1}{500} = 0 \Rightarrow c_1 = 300.
+\end{align*}
+substituindo o $c_1$ temos,
+\begin{align*}
+	i(t) = \frac{300}{500} -  \frac{300e^{-500t}}{500} \Rightarrow i(t) = \frac{3}{5}\left (1 -
+	e^{-500t}\right ) 
+\end{align*}
+logo,
+\begin{align*}
+	\lim_{t\rightarrow\infty} \frac{3}{5}\left (1 -e^{\frac{-t}{500}} \right) = \frac{3}{5} A
+\end{align*}
+
+
+\vspace{0.6 cm}
+
+\begin{exercise}
+Encontre uma expressão para a corrente em um circuito onde a resistência é $12\,\Omega$, a indutância é $4\,H$, a pilha fornece uma voltagem constante de $60\,V$ e o interruptor é ligado quanto $t = 0$. Qual é o valor da corrente?
+\end{exercise}
+Solu\c c\~ao:\\
+Pelas le\'is de Kirchhoff temos que o sistema \'e do tipo LR, portanto,
+\begin{align*}
+	L\frac{di}{dt} + Ri = E(t) \Rightarrow \frac{di}{dt} + \frac{R}{L}i = \frac{E(t)}{L}
+\end{align*}
+Aplicando as informa\c c\~oes dada temos,
+\begin{align*}
+	L\frac{di}{dt} + Ri = E(t) \Rightarrow \frac{di}{dt} + \frac{12}{4}i &= \frac{60}{4} \Rightarrow \\
+	\frac{di}{dt} + 3i &= 15 \Rightarrow\\
+	\frac{di}{15-3i} &= dt \Rightarrow \\
+	\Rightarrow i(t) &= \frac{15}{3} -\frac{c_1e^{-3t}}{3}
+\end{align*}
+aplicando a condi\c c\~ao inicial temos que,
+\begin{align*}
+	i(0) = 0 \Rightarrow \frac{15}{3} - \frac{c_1}{3} = 0 \Rightarrow c_1 = 15
+\end{align*}
+substituindo temos que,
+\begin{align*}
+	i(t) = \frac{15}{3} -\frac{15e^{-3t}}{3} \Rightarrow i(t) = 5(1 - e^{-3t})
+\end{align*}
+\vspace{0.6 cm}
+
+\begin{exercise}
+Uma força eletromotriz de $200\,V$ é aplicada a um circuito em série $RC$ no qual a resistência é de $1000\,\Omega$ e a capacitância é $5.10^{-6}\,F$. Ache a carga $q(t)$ no
+capacitor se $I(0) = 0,4$. Determine a carga da corrente em $t = 0,005s$. Determine a carga quando $t \rightarrow \infty$.
+\end{exercise}
+Solu\c c\~ao:\\
+Temos que pelas le\'is de Kirchhoff o sistema \'e do tipo RC, portanto,
+\begin{align*}
+	R\frac{dq}{dt} + \frac{1}{C}q = E(t) \Rightarrow \frac{dq}{dt} + \frac{1}{RC}q = E(t)
+\end{align*}
+aplicando as informa\c c\~oes dada temos,
+\begin{align*}
+	\frac{dq}{dt} + \frac{1}{RC}q &= E(t) \Rightarrow \frac{dq}{dt} + \frac{1}{0,005}q = \frac{1}{5} \Rightarrow \\
+	&\Rightarrow  q(t) = (0,005)\left ( \frac{1}{5} -c_1e^{\frac{-t}{0,005}}\right )
+\end{align*}
+por outro lado,
+\begin{align*}
+	\frac{dq}{dt} =  (0,005)\left (\frac{c_1}{0,005}e^{\frac{-t}{0,005}}\right ) \Rightarrow \frac{dq}{dt} = c_1
+	e^{\frac{-t}{0,005}} = i(t)
+\end{align*}
+aplicando a condi\c c\~ao inicial temos que,
+\begin{align*}
+	i(0) = 0,4 \Rightarrow  c_1 = 0,4
+ \end{align*}
+substituindo temos que,
+\begin{align*}
+  q(t) = (0,005)\left ( \frac{1}{5} -0,4e^{\frac{-t}{0,005}}\right )
+\end{align*}
+calculando a carga para $t = 0,005$,
+\begin{align*}
+  q(0,005) = (0,005)\left ( \frac{1}{5} -0,4e^{\frac{-0,005}{0,005}}\right ) \Rightarrow q(0,005) =  \frac{1}{5}
+  -0,4e^{{-1}} \approx 0,052
+\end{align*}
+para o caso $t \rightarrow \infty$ temos que,
+\begin{align*}
+	\lim_{t\rightarrow\infty} (0,005)\left ( \frac{1}{5} -0,4e^{\frac{-t}{0,005}}\right ) = 0,001.
+\end{align*}
+
+\vspace{0.6 cm}
+
+\end{document}
+
+

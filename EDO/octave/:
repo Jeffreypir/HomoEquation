@@ -1,0 +1,174 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath,amsthm,amssymb,mathtools,tikz,graphicx,pgfplots,verbatim,fancyhdr}
+\pagestyle{fancy}%Style of page
+\setlength{\headsep}{0.5in}
+
+\lhead{%Header left
+	Universidade Federal da Para\'iba \\
+	Discente: Jefferson Bezerra dos Santos\\
+	Docente: Jos\'e Miguel Aroztegui Massera 
+}
+
+\title{Lista de EDO aplicada}
+\date{\vspace{-5ex}}
+
+\begin{document}
+\maketitle\thispagestyle{fancy}
+\textbf{1. Quest\~ao:}\\
+
+De fato, o m\'etodo de Runge-Kutta \'e definido como,\\
+\begin{align*}
+	y_{n+1} - y_{n} &= h\phi(x_{n},y_{n},h)\\
+	\phi(x,y,h) &= {c_1}{k_1} + {c_2}{k_2} + \dots + {c_R}{k_R}\\
+	k_1 &= f(x,y)\\ 
+	k_2 &= f(x + a_2 h,y + hb_{21}{k_1})\\ 
+	& \hspace{5pt}\vdots  \\
+	k_R &= f(x + a_R h,y + hb_{R1}{k_1} + hb_{R2}{k_2} + \dots + hb_{RR-1}{k_{R-1}})\\ 
+\end{align*}
+onde:\\
+\begin{itemize}
+	\item $\phi :\mathbb{R}^{3} \rightarrow \mathbb{R}$;
+	\item $a,c$ s\~ao vetores do $\mathbb{R}^{R}$; 
+	\item $B$ \'e uma matriz de diagonal inferior em $\mathbb{R}^{\mathrm{RxR}}$.
+\end{itemize}
+para que o m\'etodo seja consistente deve-se ter o \'indice de erro $q$ maior ou igual a 1. Pela defini\c c\~ao do
+m\'etod de Runge-Kutta segue que
+\begin{align*}
+	C_0 = {\alpha}_0 + {\alpha}_1 = -1 + 1 = 0
+\end{align*}
+pela defini\c c\~ao de consist\^encia segue que,
+\begin{align*}
+	C_1 = 0 &\Rightarrow {\alpha}_{1} - ({\beta}_{0} + {\beta}_{1} + \dots + {\beta}_{n} ) = 0 \\
+	&\Rightarrow 1 -(c_1 + c_2 + \dots + c_R) = 0  \\
+	&\Rightarrow 1 -(c_1 + c_2 + \dots + c_R) = 0  \\
+	&\Rightarrow c_1 + c_2 + \dots + c_R = 1 
+\end{align*}
+
+\textbf{2. Quest\~ao:}\\
+O m\'etodo de Runge-kutta de ordem 3 \'e definido como,\\
+\begin{align*}
+	y_{n+1} - y_{n} &= h\phi(x_{n},y_{n},h)\\
+	\phi (x,y,h) &= {c_1}{k_1} + {c_2}{k_2} + {c_3}{k_3}\\
+	k_1 &= f(x,y)\\ 
+	k_2 &= f(x + a_2 h,y + hb_{21}{k_1})\\ 
+	k_3 &= f(x + a_3 h,y + hb_{31}{k_1} + hb_{32}{k_2}).\\ 
+\end{align*}
+onde:\\
+\begin{itemize}
+	\item $\phi :\mathbb{R}^{3} \rightarrow \mathbb{R}$;
+	\item $a,c$ s\~ao elementos do $\mathbb{R}^{R}$; 
+	\item $b$ \'e uma matriz de diagonal superior em $\mathbb{R}^{\mathrm{RxR}}$.
+\end{itemize}
+sobre o vetor $a$ \'e imposta a seguinte condi\c c\~ao,
+\begin{align*}
+	a_1 &= 0\\
+	a_2 &= b_{21}\\
+	a_3 &= b_{31} + b_{32}\\
+\end{align*}
+os dados do vetores $a, c$ e da matrix $b$ podem ser organizados da seguinte maneira,
+{\arraycolsep=3.4pt\def\arraystretch{1.4}
+\[
+	\begin{array}{l|ccc} 
+		0 &  & & \\
+		a_2 & b_{21} & & \\
+		a_3 & b_{31} & b_{32}& \\
+		\hline
+		&c_1 & c_2 & c_3
+	\end{array}
+\]
+}
+finalmente o runge-kutta de ordem 3 deve satisfazer as seguintes rela\c c\~oes,
+\begin{align*}
+	c_1 + c_2 + c_3 &= 1 \\
+	c_2 a_2 + c_3 a_3 &= \frac{1}{2} \\
+	c_2 {a_2}^{2} + c_3 {a_3}^{2}&= \frac{1}{3} \\
+	c_3 b_{32} a_2 &= \frac{1}{6}
+\end{align*}
+\textbf{3. quest\~ao:}\\
+
+{\arraycolsep=3.4pt\def\arraystretch{1.4}
+\[
+	\begin{array}{l|ccc} 
+		0 &  & & \\
+		\frac{1}{3} & \frac{1}{3} & & \\
+		\frac{2}{3} & 0 & \frac{2}{3}& \\
+		\hline
+		&\frac{1}{4} & 0 & \frac{1}{4}
+	\end{array}
+\]
+}
+verificando as rela\c c\~oes para (Heun),
+\begin{align*}
+	c_1 + c_2 + c_3 &= \frac{1}{4} + 0 + \frac{3}{4} = 1 \hspace{2pt}(\textrm{v\'alida})\\
+	c_2 a_2 + c_3 a_3 &= 0\left (\frac{1}{2} \right) + \frac{3}{4} \left (\frac{2}{3} \right ) = \frac{1}{2} \hspace{2pt}(\textrm{v\'alida})\\
+	c_2 {a_2}^{2} + c_3 {a_3}^{2}&= 0 \left ( \frac{1}{3}\right )^{2} +  \frac{3}{4} \left ( \frac{2}{3}\right )^{2} =
+	\frac{1}{3}\hspace{2pt}(\textrm{v\'alida})\\ 
+	c_3 b_{32} a_2 &=\left (\frac{3}{4}\right )\left (\frac{2}{3}\right )\left (\frac{1}{3}\right ) =
+	\frac{1}{6}\hspace{2pt}(\textrm{v\'alida}).
+\end{align*}
+
+verificando as rela\c c\~oes para (Nystron),
+
+{\arraycolsep=3.4pt\def\arraystretch{1.4}
+\[
+	\begin{array}{l|ccc} 
+		0 &  & & \\
+		\frac{2}{3} & \frac{2}{3} & & \\
+		\frac{2}{3} & 0 & \frac{2}{3}& \\
+		\hline
+		&\frac{1}{4} & \frac{3}{8} & \frac{3}{8}
+	\end{array}
+\]
+}
+\begin{align*}
+	c_1 + c_2 + c_3 &= \frac{1}{4} + \frac{3}{8} + \frac{3}{8} = \frac{2}{8} + \frac{3}{8} + \frac{3}{8} = 1 \hspace{2pt}(\textrm{v\'alida})\\
+	c_2 a_2 + c_3 a_3 &= \frac{3}{8}\left (\frac{2}{3} \right) + \frac{3}{8} \left (\frac{2}{3} \right ) =
+	\frac{1}{4} + \frac{1}{4} = \frac{1}{2} \hspace{2pt}(\textrm{v\'alida})\\
+	c_2 {a_2}^{2} + c_3 {a_3}^{2}&= \frac{3}{8} \left ( \frac{2}{3}\right )^{2} +  \frac{3}{8} \left ( \frac{2}{3}\right )^{2} =
+	\frac{2}{6} = \frac{1}{3}\hspace{2pt}(\textrm{v\'alida})\\ 
+	c_3 b_{32} a_2 &=\left (\frac{3}{8}\right )\left (\frac{2}{3}\right )\left (\frac{2}{3}\right ) =
+	\frac{1}{2}\left ( \frac{1}{3}\right ) = \frac{1}{6}\hspace{2pt}(\textrm{v\'alida})
+\end{align*}
+\newpage
+\textbf{4. Quest\~ao:}\\
+O m\'etodo de Runge-Kutta de 4 ordem \'e definido por,
+\begin{align*}
+	y_{n+1} - y_{n} &= h\phi(x_{n},y_{n},h)\\
+	\phi (x,y,h) &= {c_1}{k_1} + {c_2}{k_2} + {c_3}{k_3} + {c_4}{k_4} \\
+	k_1 &= f(x,y)\\ 
+	k_2 &= f(x + a_2 h,y + hb_{21}{k_1})\\ 
+	k_3 &= f(x + a_3 h,y + hb_{31}{k_1} + hb_{32}{k_2})\\ 
+	k_4 &= f(x + a_4 h,y + hb_{41}{k_1} + hb_{42}{k_2}) + hb_{43}{k_3}) .\\ 
+\end{align*}
+onde:\\
+\begin{itemize}
+	\item $\phi :\mathbb{R}^{3} \rightarrow \mathbb{R}$;
+	\item $a,c$ s\~ao elementos do $\mathbb{R}^{R}$; 
+	\item $b$ \'e uma matriz de diagonal superior em $\mathbb{R}^{\mathrm{RxR}}$.
+\end{itemize}
+sobre o vetor $a$ \'e imposta a seguinte condi\c c\~ao,
+\begin{align*}
+	a_1 &= 0\\
+	a_2 &= b_{21}\\
+	a_3 &= b_{31} + b_{32}\\
+	a_4 &= b_{41} + b_{42} + b_{43}\\
+\end{align*}
+os dados do vetores $a, c$ e da matrix $b$ podem ser organizados da seguinte maneira,
+{\arraycolsep=3.4pt\def\arraystretch{1.4}
+\[
+	\begin{array}{l|cccc} 
+		0 &  & & \\
+		a_2 & b_{21} & & & \\
+		a_3 & b_{31} & b_{32}& &\\
+		a_4 & b_{41} & b_{42}&b_{43} &\\
+		\hline
+		&c_1 & c_2 & c_3 & c_4
+	\end{array}
+\]
+}
+finalmente o Runge-Kutta de ordem 3 deve satisfazer as seguintes rela\c c\~oes,
+
+\end{document}
+
+

@@ -1,0 +1,64 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath,amsthm,amssymb,mathtools,tikz,graphicx,pgfplots}
+\date{\today}
+
+\newcommand {\fq}[2]{\frac{#1}{#2}}
+\newcommand {\dvp}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand {\ex}[1]{e^{#1}}
+\newcommand {\el}[2]{{#1}^{#2}}
+\newcommand {\eq}[1]{Eq.(\ref{#1})}
+
+\title{Primeira lista de EDO}
+\author{Jefferson Bezerra dos Santos}
+
+\begin{document}
+\maketitle
+1. Quest\~ao:\\
+(a) \\
+\begin{align*}
+	\fq{dy}{dx} = \fq{1}{\ex{y}-x} 
+\end{align*}
+Solu\c c\~ao:
+\begin{align*}
+	y'= \fq{1}{\ex{y}-x} \Rightarrow (\ex{y}-x)y' = 1 \Rightarrow (\ex{y}-x)y' - 1 = 0 \Rightarrow 1 + (x-\ex{y})y'= 0
+\end{align*}
+multiplicando ambos os membros por ($\ex{y}$) temos que
+\begin{align}
+	\label{eq1}
+&	 \ex{y} + \ex{y}(x-\ex{y})y'= 0 \\ \nonumber 
+&	P(x,y) = \ex{y} \\  
+&	Q(x,y) = \ex{y}(x-\ex{y}). \nonumber
+\end{align}
+Teste para \eq{eq1}:
+\begin{align*}
+&\dvp{P}{y} =  \dvp{Q}{x} \Rightarrow \text{\'e exata}  
+\end{align*}
+
+\begin{align*}
+ \hspace{3cm}&\dvp{(\ex{y})}{y} = \ex{y} & \\
+ \hspace{3cm}& \hspace{3cm} \Rightarrow \mbox{\'e exata}\\ 
+ \hspace{3cm}&\dvp{(\ex{y})({\ex{y}-x})}{x}= \ex{y} & 
+\end{align*}
+Logo,
+\begin{align}
+	\label{eq2}
+	\varphi (x,y) = \int P(x,y)dx = \int \ex{y}dx = \ex{y} + F(y)
+\end{align}
+como
+\begin{align*}
+	 \dvp{\varphi}{y}(x,y) = Q(x,y),
+\end{align*}
+segue que
+\begin{align}
+	\label{eq3}
+	\ex{y}x + F'(y) &= \ex{y}(x - \ex{y}) \nonumber \\
+	 F'(y)& = -\ex{2y}\nonumber \\ 
+	 F(y)& = - \int \ex{2y}dy \nonumber \\
+	 F(y)& = - \fq{1}{2} \ex{2y} + c
+\end{align}
+substituindo \eq{eq3} em \eq{eq2} temos que
+\begin{align*}
+	\varphi (x,y) = \ex{y}x - \fq{1}{2} \ex{2y} + c.
+\end{align*}
+\end{document}
